@@ -1,6 +1,14 @@
-Testing Center Locator 
-Readme
+README
 
+# TestingCenterLocator
+Testing center locator is an interactive application where users can find nearby Covid-19 testing centers and receive the latest relevant news articles and CDC updates.
+
+## User Story
+As a health-conscious person
+I WANT to get the latest information on Covid-19, including nearby testing centers, state-statistics and relevant news articles
+SO THAT I can be well-informed and ensure I’m adhering to expert-recommendations.
+
+## Acceptance Criteria
 GIVEN a landing page with a form input
 WHEN I enter a zip code
 THEN I am presented with a list of nearby Covid-19 centers
