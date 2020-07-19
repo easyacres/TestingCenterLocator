@@ -1,11 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
     <title>Document</title>
+    
+    
+    <style>
+        #map {
+            height: 800px;
+            
+            width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            
+        }
+        
+        .inputField {
+            margin-left: 45%;
+            margin-right: 45%;
+            padding-bottom: 20px;
+        }
+        </style>
+
+
+
 </head>
+
 <body>
     
+    
+    
+    <h1 style="text-align: center;">Covid Testing centers near you!</h1>
+    <div class="inputField">
+        
+        <input type="text">
+        <input id="btn" type="submit" value="Submit">
+    </div>
+    
+    <div id="map"></div>
+    
+    
+    <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAayUREzm6gydcCBnHzTXcnN4PsneoLays&libraries=places"></script>
+    <script src="script.js"></script>
+    
+    
 </body>
+
 </html>
+
+
+
+
+
