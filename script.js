@@ -1,7 +1,5 @@
 
 
-
-
 var map;
 var service;
 var infowindow;
@@ -16,9 +14,30 @@ var lng = '';
 
 
 
+$("#btn").on("click", function () {
+
+    zipCode = $("#zip").val();
+    console.log(zipCode);
+    geocoder.geocode({ 'address': zipCode }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            lat = results[0].geometry.location.lat();
+            lng = results[0].geometry.location.lng();
+
+            console.log("latitude: " + lat + " Longitude: " + lng);
+            initialize();
+            callback();
+        
+        } else {
+        alert("Geocode was not successful for the following reason: " + status);
+            return;
+      }
+    });
+
+});
 
 function initialize() {
-    var CurrentLocation = new google.maps.LatLng(lat, lng);
+    currentLocation = new google.maps.LatLng(lat, lng);
+    console.log(currentLocation);
 
     map = new google.maps.Map(document.getElementById('map'), {
         center: currentLocation,
@@ -26,7 +45,7 @@ function initialize() {
     });
 
     var request = {
-        location: CurrentLocation,
+        location: currentLocation,
         openNow: true,
         radius: '700',
         query: 'COVID testing'
@@ -41,7 +60,8 @@ function callback(results, status) {
         for (var i = 0; i < results.length; i++) {
             var place = results[i];
             createMarker(results[i].geometry.location);
-            console.log(results[i]);
+            console.log("Testing center: " + results[i].name + " Address: " + results[i].formatted_address);
+
         }
         currentLocation = results[0].geometry.location;
         map.setCenter(results[0].geometry.location);
@@ -54,22 +74,7 @@ function createMarker(position) {
         map: map
     });
 
-    
+
 }
 
 
-
-$("#btn").on("click", function () {
-
-    zipCode = $(".inputField").val();
-    geocoder.geocode({ 'address': zipCode }, function (results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-        lat = results[0].geometry.location.lat();
-        lng = results[0].geometry.location.lng();
-    } 
-});
-
-    initialize();
-    callback();
-
-});
