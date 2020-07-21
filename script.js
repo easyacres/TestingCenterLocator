@@ -18,17 +18,21 @@ $("#btn").on("click", function () {
 
     zipCode = $("#zip").val();
     console.log(zipCode);
+
     geocoder.geocode({ 'address': zipCode }, function (results, status) {
+
         if (status == google.maps.GeocoderStatus.OK) {
             lat = results[0].geometry.location.lat();
             lng = results[0].geometry.location.lng();
 
             console.log("latitude: " + lat + " Longitude: " + lng);
+
             initialize();
             callback();
         
         } else {
-        alert("Geocode was not successful for the following reason: " + status);
+
+            alert("Geocode was not successful for the following reason: " + status);
             return;
       }
     });
@@ -39,7 +43,7 @@ function initialize() {
     currentLocation = new google.maps.LatLng(lat, lng);
     console.log(currentLocation);
 
-    map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map($("#map"), {
         center: currentLocation,
         zoom: 12
     });
