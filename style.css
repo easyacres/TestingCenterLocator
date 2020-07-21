@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(https://www.gavi.org/sites/default/files/background-image/2020/woman-with-latex-gloves-adjusting-her-face-mask-4298016_h1_hdr.jpg);
+
+}
+
+.pure-menu {
+    background-color: white;
+    opacity: .7;
+    height: 60px;
+}
+
+.pure-menu-list {
+    padding-top: 12px;
+    margin-left: 10px;
+
+}
+
+.pure-g {
+    text-align: center;
+    color: white;
+    margin-top: 15rem;
+}
+
+h1 {
+    font-size: 72px;
+    margin-bottom: 0;
+    color: #e7717d;
+}
+
+p {
+    font-size: 20px;
+}
+
+input {
+    text-align: center;
+    background-color: white;
+    opacity: .7;
+
+}
+
+input:hover {
+    opacity: .8;
+}
