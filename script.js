@@ -9,7 +9,7 @@ var geocoder = new google.maps.Geocoder();
 var zipCode = "";
 var lat = '';
 var lng = '';
-
+StatAPI= "e4d71997540c41028352933253eb7f8c";
 
 
 
@@ -76,5 +76,25 @@ function createMarker(position) {
 
 
 }
+
+
+
+$.ajax({
+    type: "GET",
+    url: "https://api.smartable.ai/coronavirus/stats/Atlanta",
+
+    // Request headers
+    beforeSend: function(xhrObj) {
+        xhrObj.setRequestHeader("Cache-Control", "no-cache");
+        xhrObj.setRequestHeader("Subscription-Key", StatAPI);
+        },
+    })
+.done(function (data) {
+    alert("success");
+    console.log("success", data)
+})
+.fail(function () {
+    alert("error");
+});
 
 
