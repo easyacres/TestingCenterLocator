@@ -9,36 +9,9 @@ var geocoder = new google.maps.Geocoder();
 var zipCode = "";
 var lat = '';
 var lng = '';
-StatAPI= "e4d71997540c41028352933253eb7f8c";
+StatAPI = "e4d71997540c41028352933253eb7f8c";
 
-$('#zip').keypress(function(event){
-
-    var keycode = (event.keyCode ? event.keyCode : event.which);
-    if(keycode == '13'){
-        
-        event.preventDefault();
-        zipCode = $("input").val();
-        storeCityorZip();
-        window.location.href = "user.html"
-
-    };
-});
-
-
-function storeCityorZip() {
-    localStorage.setItem("savedZip", zipCode);
-};
-
-
-function retrieveStoredZip() {
-    
-    var storedZip = localStorage.getItem("savedZip");
-
-    if (storedZip != null) {
-        zipCode = storedZip;
-    };
-};
-
+$("#btn").on("click", function () {
 
     var stateCode = $("#stacked-state").val();
 
@@ -49,25 +22,27 @@ function retrieveStoredZip() {
     $.ajax({
         type: "GET",
         url: "https://api.smartable.ai/coronavirus/stats/US-" + stateCode,
-        
+
         // Request headers
-        beforeSend: function(xhrObj) {
+        beforeSend: function (xhrObj) {
             xhrObj.setRequestHeader("Cache-Control", "no-cache");
             xhrObj.setRequestHeader("Subscription-Key", StatAPI);
         },
     })
-    .done(function (data) {
-        alert("success");
-        console.log("success", data)
-    })
-    .fail(function () {
-        alert("error");
-    });
-    
+        .done(function (data) {
+            alert("success");
+            console.log("success", data)
+        })
+        .fail(function () {
+            alert("error");
+        });
+
     //================================
     //google maps API
     //================================
+
     zipCode = $("#zip").val();
+
     window.location.replace("/results.html?zip=" + zipCode + "&state=" + stateCode);
     console.log(zipCode);
     geocoder.geocode({ 'address': zipCode }, function (results, status) {
@@ -75,33 +50,25 @@ function retrieveStoredZip() {
             lat = results[0].geometry.location.lat();
             lng = results[0].geometry.location.lng();
 
-    if (window.location.href.includes("user.html")) {
-        retrieveStoredZip();
-        console.log("hit enter");
-        
-        console.log(zipCode);
-    
-        geocoder.geocode({ 'address': zipCode }, function (results, status) {
-    
-            if (status == google.maps.GeocoderStatus.OK) {
-                lat = results[0].geometry.location.lat();
-                lng = results[0].geometry.location.lng();
-    
-                console.log("latitude: " + lat + " Longitude: " + lng);
-    
-                
-                google.maps.event.addDomListener(window, "load", initialize);
-    
-                
-                localStorage.clear();
-            } else {
-    
-                alert("Geocode was not successful for the following reason: " + status);
-                return;
-          }
-        });  
-    }
-};
+
+
+            console.log("latitude: " + lat + " Longitude: " + lng);
+
+
+            google.maps.event.addDomListener(window, "load", initialize);
+
+
+            localStorage.clear();
+        } else {
+
+            alert("Geocode was not successful for the following reason: " + status);
+            return;
+        }
+    });
+
+});
+
+
 
 
 
@@ -137,7 +104,7 @@ function callback(results, status) {
         currentLocation = results[0].geometry.location;
         map.setCenter(results[0].geometry.location);
     }
-}
+};
 function createMarker(position) {
 
     var marker = new google.maps.Marker({
@@ -147,4 +114,4 @@ function createMarker(position) {
 
 
 };
-runAPI ();
+
