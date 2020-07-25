@@ -42,3 +42,11 @@ input {
 input:hover {
     opacity: .8;
 }
+#map {
+    height: 800px;
+    
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
