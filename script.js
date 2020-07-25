@@ -11,10 +11,34 @@ var lat = '';
 var lng = '';
 StatAPI= "e4d71997540c41028352933253eb7f8c";
 
+$('#zip').keypress(function(event){
+
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    if(keycode == '13'){
+        
+        event.preventDefault();
+        zipCode = $("input").val();
+        storeCityorZip();
+        window.location.href = "user.html"
+
+    };
+});
 
 
+function storeCityorZip() {
+    localStorage.setItem("savedZip", zipCode);
+};
 
-$("#btn").on("click", function () {
+
+function retrieveStoredZip() {
+    
+    var storedZip = localStorage.getItem("savedZip");
+
+    if (storedZip != null) {
+        zipCode = storedZip;
+    };
+};
+
 
     var stateCode = $("#stacked-state").val();
 
@@ -51,17 +75,35 @@ $("#btn").on("click", function () {
             lat = results[0].geometry.location.lat();
             lng = results[0].geometry.location.lng();
 
-            console.log("latitude: " + lat + " Longitude: " + lng);
-            initialize();
-            callback();
+    if (window.location.href.includes("user.html")) {
+        retrieveStoredZip();
+        console.log("hit enter");
         
-        } else {
-        alert("Geocode was not successful for the following reason: " + status);
-            return;
-      }
-    });
+        console.log(zipCode);
+    
+        geocoder.geocode({ 'address': zipCode }, function (results, status) {
+    
+            if (status == google.maps.GeocoderStatus.OK) {
+                lat = results[0].geometry.location.lat();
+                lng = results[0].geometry.location.lng();
+    
+                console.log("latitude: " + lat + " Longitude: " + lng);
+    
+                
+                google.maps.event.addDomListener(window, "load", initialize);
+    
+                
+                localStorage.clear();
+            } else {
+    
+                alert("Geocode was not successful for the following reason: " + status);
+                return;
+          }
+        });  
+    }
+};
 
-});
+
 
 function initialize() {
     currentLocation = new google.maps.LatLng(lat, lng);
@@ -81,6 +123,7 @@ function initialize() {
 
     service = new google.maps.places.PlacesService(map);
     service.textSearch(request, callback);
+    callback();
 }
 
 function callback(results, status) {
@@ -103,7 +146,5 @@ function createMarker(position) {
     });
 
 
-}
-
-
-
+};
+runAPI ();
