@@ -81,7 +81,7 @@ function createMarker(position) {
 
 $.ajax({
     type: "GET",
-    url: "https://api.smartable.ai/coronavirus/stats/Atlanta",
+    url: "https://api.smartable.ai/coronavirus/stats/US-GA",
 
     // Request headers
     beforeSend: function(xhrObj) {
