@@ -14,6 +14,9 @@ var currentLocation;
 var geocoder = new google.maps.Geocoder();
 
 
+var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var labelIndex = 0;
+
 var lat = '';
 var lng = '';
 StatAPI = "e4d71997540c41028352933253eb7f8c";
@@ -36,7 +39,7 @@ $.ajax({
     },
 })
     .done(function (data) {
-        
+
         console.log("Covid dtata:", data)
     })
     .fail(function () {
@@ -66,12 +69,13 @@ function getLatLngFromZip() {
         if (status == google.maps.GeocoderStatus.OK) {
             lat = results[0].geometry.location.lat();
             lng = results[0].geometry.location.lng();
-    
+
             console.log("latitude: " + lat + " Longitude: " + lng);
+
             initialize();
-    
+
         } else {
-    
+
             alert("Geocode was not successful for the following reason: " + status);
             return;
         }
@@ -91,7 +95,7 @@ function initialize() {
     var request = {
         location: currentLocation,
         openNow: true,
-        radius: '700',
+        radius: '800',
         query: 'COVID testing'
     };
 
@@ -108,22 +112,53 @@ function callback(results, status) {
         //Loop that runs through our results
         for (var i = 0; i < results.length; i++) {
             var location = results[i];
-            createMarker(location.geometry.location);
+            createMarker(location.geometry.location, location, labels[labelIndex++ % labels.length],);
             console.log("Testing center: " + location.name + " Address: " + location.formatted_address);
-
+           
         }
         currentLocation = results[0].geometry.location;
         map.setCenter(results[0].geometry.location);
     }
 };
-function createMarker(position) {
+function createMarker(position, location, label) {
+
+    
 
     var marker = new google.maps.Marker({
         position: position,
+        label: label,
         map: map
     });
 
 
+    var contentString = `
+        <div id="content">
+            <div id="siteNotice">
+            </div>
+            <h2 id="firstHeading" class="firstHeading">${location.name}</h2>
+            <hr>
+            <div id="bodyContent">
+                <p>Adress: ${location.formatted_address}</p>
+            </div>
+        </div>`
+
+
+      const infowindow = new google.maps.InfoWindow({
+        content: contentString,
+        maxWidth: 500
+      });
+      marker.addListener("mouseover", () => {
+        infowindow.open(map, marker);
+        console.log($(this));
+      });
+      marker.addListener('mouseout', () => {
+        infowindow.close();
+    });
+
+
 };
+
+
+
 
 getLatLngFromZip();
