@@ -4,6 +4,11 @@
     font-weight: 5rem;
 }
 
+.menu-link:hover {
+    color: #282828;
+    opacity: .7;
+}
+
 #virusMenu {
     color: #e7717d;
     font-size: 2rem;

@@ -2,9 +2,11 @@
 <html class="no-js" lang="en">
 
 <head>
+    <!-- App's Meta Data -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>COVID-19 Test Finder</title>
+    <!-- Foundation CSS Links -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.2.3/motion-ui.min.css">
     <link rel="stylesheet"
@@ -14,8 +16,8 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
         integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+    <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="results.css">
-    <!-- optional CDN for Foundation Icons ^^ -->
     <!-- Font Awesome Link -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css">
     <!-- Favicon Link -->
@@ -23,24 +25,22 @@
 </head>
 
 <body>
-
-    <header>
-        <!-- Navigation Menu -->
-        <div class="top-bar">
-            <div class="top-bar-left">
-                <ul class="menu">
-                    <li>
-                        <i id="virusMenu" class="fas fa-virus"></i>
-                    </li>
-                    <li>
-                        <a href="index.html" class="menu-link">Home</a>
-                    </li>
-                </ul>
-            </div>
+    <!-- Navigation Menu -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <ul class="menu">
+                <li>
+                    <i id="virusMenu" class="fas fa-virus"></i>
+                </li>
+                <li>
+                    <a href="index.html" class="menu-link">Home</a>
+                </li>
+            </ul>
         </div>
-        <br>
-    </header>
+    </div>
 
+    <br>
+    <!-- Google Maps Section -->
     <article class="grid-container">
         <div class="grid-x grid-margin-x">
             <div class="medium-8 cell">
@@ -63,7 +63,7 @@
                                     </label>
                                 </div>
                                 <div class="small-12 columns">
-                                    <input type="number" placeholder="State">
+                                    <input type="text" placeholder="State">
                                     <button id="newSearchBtn" type="submit" class="button"><i class="fas fa-search"></i>
                                         Search</button>
                                 </div>
@@ -76,6 +76,7 @@
 
         <hr>
 
+        <!-- COVID-19 News Article Section -->
         <div class="text-center">
             <h4 style="margin: 0;" class="text-center">LATEST STORIES & STATISTICS</h4>
         </div>
@@ -158,11 +159,10 @@
                             delectus aperiam nesciunt magni facilis ullam.</p>
                     </div>
                 </div>
-
-
             </div>
-            <div class="grid-x large-4 cell">
 
+            <!-- COVID-19 Statistics & Recommendations Section -->
+            <div class="grid-x large-4 cell">
                 <aside>
 
                     <div>
@@ -198,14 +198,14 @@
                             data-theme="theme-cyan" data-cdc-widget="cdcMaps"
                             data-config-url="/coronavirus/2019-ncov/cases-updates/us-case-count-maps-charts/map-cases-us-CaseOnly_Desktop.json">
                         </div>
-
                     </div>
 
-                    <br>
                     <hr>
+
                     <div>
                         <h4 class="text-center">CDC RECOMMENDATIONS</h4>
                     </div>
+
                     <hr>
 
                     <div class="grid-x cell">
@@ -242,15 +242,15 @@
                                     surface.</h6>
                             </div>
                         </div>
-
                     </div>
-
                 </aside>
-
             </div>
         </div>
     </article>
+
     <br>
+
+    <!-- Footer -->
     <footer>
 
         <div class="grid-x grid-margin-y expanded">
@@ -272,7 +272,7 @@
 
     </footer>
 
-
+    <!-- javaScript and jQuery Script Tags -->
     <script src="//tools.cdc.gov/TemplatePackage/contrib/widgets/tp-widget-external-loader.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>

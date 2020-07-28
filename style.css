@@ -15,6 +15,11 @@ body {
 
 }
 
+.pure-menu-link:hover {
+    background-color: rgb(221, 221, 221);
+    opacity: .7;
+}
+
 .fa-virus {
     color: #e7717d;
     font-size: 2rem;
