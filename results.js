@@ -7,26 +7,17 @@ var zipCode = params.get("zip") //grab from url string
 var stateCode = params.get("state") //grab from url string
 
 
-var map;
-var service;
-var infowindow;
-var currentLocation;
-var geocoder = new google.maps.Geocoder();
 
 
-var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var labelIndex = 0;
 
-var lat = '';
-var lng = '';
+
+
+//======================================================================
+//covid stats API
+//======================================================================
+
 StatAPI = "e4d71997540c41028352933253eb7f8c";
 
-
-
-
-//================================
-//covid stats API
-//================================
 console.log("Selected state: " + stateCode);
 $.ajax({
     type: "GET",
@@ -56,9 +47,26 @@ $.ajax({
 
 
 
-//================================
+//======================================================================
 //google maps API
-//================================
+//======================================================================
+
+
+var map;
+var service;
+var infowindow;
+var currentLocation;
+var geocoder = new google.maps.Geocoder();
+
+var lat = '';
+var lng = '';
+
+var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var labelIndex = 0;
+
+
+
+
 console.log("Selected Zip: " + zipCode);
 
 //Geocoder function
@@ -81,6 +89,7 @@ function getLatLngFromZip() {
         }
     });
 }
+
 
 function initialize() {
     // Get current location from lat and long
@@ -109,28 +118,31 @@ function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
 
         console.log("Testing center Results: ", results);
-        //Loop that runs through our results
+        //Loop that runs through our results 
         for (var i = 0; i < results.length; i++) {
             var location = results[i];
+            
             createMarker(location.geometry.location, location, labels[labelIndex++ % labels.length],);
-            console.log("Testing center: " + location.name + " Address: " + location.formatted_address);
-           
+
         }
         currentLocation = results[0].geometry.location;
         map.setCenter(results[0].geometry.location);
     }
 };
+
+
+
 function createMarker(position, location, label) {
 
-    
-
     var marker = new google.maps.Marker({
+        animation: google.maps.Animation.DROP,
         position: position,
         label: label,
         map: map
     });
 
-
+    var addressArray = location.formatted_address.split(",");
+    
     var contentString = `
         <div id="content">
             <div id="siteNotice">
@@ -138,21 +150,29 @@ function createMarker(position, location, label) {
             <h2 id="firstHeading" class="firstHeading">${location.name}</h2>
             <hr>
             <div id="bodyContent">
-                <p>Adress: ${location.formatted_address}</p>
+                <h3> ${addressArray[0]}</h3>
+                <h3> ${addressArray[1]}, ${addressArray[2]}</h3>
+                <h3> ${addressArray[3]}</h3>
             </div>
         </div>`
 
 
-      const infowindow = new google.maps.InfoWindow({
+        
+    const infowindow = new google.maps.InfoWindow({
         content: contentString,
         maxWidth: 500
-      });
-      marker.addListener("mouseover", () => {
+    });
+
+    marker.addListener("mouseover", () => {
         infowindow.open(map, marker);
-        console.log($(this));
-      });
-      marker.addListener('mouseout', () => {
+
+    });
+
+    marker.addListener('mouseout', () => {
         infowindow.close();
+    });
+    marker.addListener('click', () => {
+        
     });
 
 
