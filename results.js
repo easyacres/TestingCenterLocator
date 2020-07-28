@@ -98,7 +98,7 @@ function initialize() {
     // Display Map
     map = new google.maps.Map(document.getElementById('map'), {
         center: currentLocation,
-        zoom: 12
+        zoom: 11.2
     });
     // Request paramenters
     var request = {
@@ -147,12 +147,12 @@ function createMarker(position, location, label) {
         <div id="content">
             <div id="siteNotice">
             </div>
-            <h2 id="firstHeading" class="firstHeading">${location.name}</h2>
+            <h5 id="firstHeading" class="firstHeading">${location.name}</h5>
             <hr>
             <div id="bodyContent">
-                <h3> ${addressArray[0]}</h3>
-                <h3> ${addressArray[1]}, ${addressArray[2]}</h3>
-                <h3> ${addressArray[3]}</h3>
+                <h6> ${addressArray[0]}</h6>
+                <h6> ${addressArray[1]}, ${addressArray[2]}</h6>
+                <h6> ${addressArray[3]}</h6>
             </div>
         </div>`
 
@@ -177,6 +177,11 @@ function createMarker(position, location, label) {
 
 
 };
+
+//======================================================================
+//News API
+//======================================================================
+
 
 
 

@@ -2,9 +2,9 @@
 
 
 
-$("#btn").on("click", function () {
-
-    var stateCode = $("#stacked-state").val();
+$("#goButton").on("click", function (event) {
+    event.preventDefault();
+    var stateCode = $("#stateList").val();
     var zipCode = $("#zip").val();
     window.location.replace("/results.html?zip=" + zipCode + "&state=" + stateCode);
    
