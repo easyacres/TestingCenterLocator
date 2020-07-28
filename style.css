@@ -1,54 +1,88 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-image: url(https://www.gavi.org/sites/default/files/background-image/2020/woman-with-latex-gloves-adjusting-her-face-mask-4298016_h1_hdr.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-
+    background-color: #282828;
 }
 
 .pure-menu {
-    background-color: white;
-    opacity: .7;
+    background-color: rgb(221, 221, 221);
     height: 60px;
 }
 
 .pure-menu-list {
     padding-top: 12px;
-    margin-left: 10px;
+    margin-left: 15px;
+    color: #282828;
 
+}
+
+.pure-menu-link:hover {
+    background-color: rgb(221, 221, 221);
+    opacity: .7;
+}
+
+.fa-virus {
+    color: #e7717d;
+    font-size: 2rem;
 }
 
 .pure-g {
     text-align: center;
     color: white;
-    margin-top: 15rem;
+}
+
+.location-finder {
+    margin-top: 12rem;
 }
 
 h1 {
-    font-size: 72px;
+    font-size: 100px;
     margin-bottom: 0;
     color: #e7717d;
 }
 
 p {
-    font-size: 20px;
+    font-size: 22px;
+    margin-top: 10px;
 }
 
 input {
     text-align: center;
-    background-color: white;
-    opacity: .7;
+    background: transparent;
+    color: white;
+    border: 1px solid white !important;
 
+}
+
+input::placeholder {
+    color: white;
 }
 
 input:hover {
     opacity: .8;
 }
-#map {
-    height: 800px;
-    
-    width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    
+
+img {
+    margin-bottom: 0;
+}
+
+#stateList {
+    background: transparent;
+    color: whitesmoke;
+    border: 1px solid white !important;
+}
+
+#stateList:hover {
+    opacity: .8;
+}
+
+#goButton {
+    background: transparent;
+    border: 1px solid white !important;
+    margin-left: 15px;
+    color: whitesmoke;
+    border-radius: 4px;
+}
+
+#goButton:hover {
+    opacity: .8;
 }
