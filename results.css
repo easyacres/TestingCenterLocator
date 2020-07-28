@@ -1,0 +1,58 @@
+.menu-link {
+    margin-top: 8px;
+    color: #282828;
+    font-weight: 5rem;
+}
+
+#virusMenu {
+    color: #e7717d;
+    font-size: 2rem;
+}
+
+.fa-virus {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: #5cdb95;
+}
+
+.fa-skull-crossbones {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: #e85a4f;
+}
+
+.fa-file-medical-alt {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: #659dbd;
+}
+
+h6 {
+    font-size: 1.07rem;
+}
+
+
+
+#newSearchBtn {
+    background-color: #e7717d;
+    border-radius: 4px;
+
+}
+
+footer {
+    background-color: grey;
+    border-top: 3px solid #e7717d;
+    padding: 15px;
+
+}
+
+.menu-text {
+    color: white !important;
+}
+
+.footer-link:hover {
+    opacity: .7;
+}
