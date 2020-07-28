@@ -4,15 +4,20 @@ body {
 }
 
 .pure-menu {
-    background-color: white;
-    opacity: .8;
+    background-color: rgb(221, 221, 221);
     height: 60px;
 }
 
 .pure-menu-list {
     padding-top: 12px;
-    margin-left: 10px;
+    margin-left: 15px;
+    color: #282828;
 
+}
+
+.fa-virus {
+    color: #e7717d;
+    font-size: 2rem;
 }
 
 .pure-g {
@@ -20,7 +25,7 @@ body {
     color: white;
 }
 
-.pure-u-md-1-2 {
+.location-finder {
     margin-top: 12rem;
 }
 
@@ -39,13 +44,40 @@ input {
     text-align: center;
     background: transparent;
     color: white;
+    border: 1px solid white !important;
 
 }
 
+input::placeholder {
+    color: white;
+}
+
 input:hover {
-    opacity: .7;
+    opacity: .8;
 }
 
 img {
     margin-bottom: 0;
+}
+
+#stateList {
+    background: transparent;
+    color: whitesmoke;
+    border: 1px solid white !important;
+}
+
+#stateList:hover {
+    opacity: .8;
+}
+
+#goButton {
+    background: transparent;
+    border: 1px solid white !important;
+    margin-left: 15px;
+    color: whitesmoke;
+    border-radius: 4px;
+}
+
+#goButton:hover {
+    opacity: .8;
 }
