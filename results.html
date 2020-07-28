@@ -1,25 +1,299 @@
-<!DOCTYPE html>
+<!doctype html>
+<html class="no-js" lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>document</title>
+    <!-- App's Meta Data -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COVID-19 Test Finder</title>
+    <!-- Foundation CSS Links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.2.3/motion-ui.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-prototype.min.css">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet'
+        type='text/css'>
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
         integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="results.css">
+    <!-- Font Awesome Link -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css">
+    <!-- Favicon Link -->
+    <link rel="icon" href="images/favicon.ico">
 </head>
-<body>
-    
-    <div id="map" ></div>
 
+<body>
+    <!-- Navigation Menu -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <ul class="menu">
+                <li>
+                    <i id="virusMenu" class="fas fa-virus"></i>
+                </li>
+                <li>
+                    <a href="index.html" class="menu-link">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <br>
+    <!-- Google Maps Section -->
+    <article class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <div class="medium-8 cell">
+                <p><img src="https://placehold.it/900x773&text=Promoted Article" alt="main article image"></p>
+            </div>
+            <div class="medium-4 cell">
+                <p><img src="https://placehold.it/400x100&text=Other cool article" alt="article promo image"
+                        alt="advertisement for deep fried Twinkies"></p>
+                <p><img src="https://placehold.it/400x100&text=Other cool article" alt="article promo image"></p>
+                <p><img src="https://placehold.it/400x100&text=Other cool article" alt="article promo image"
+                        alt="advertisement for deep fried Twinkies"></p>
+                <p><img src="https://placehold.it/400x100&text=Other cool article" alt="article promo image"></p>
+                <div id="newSearch" class="medium-5 large-3 columns">
+                    <div class="callout secondary">
+                        <form>
+                            <div class="row">
+                                <div class="small-12 columns">
+                                    <label>Search for a New City
+                                        <input type="text" placeholder="City">
+                                    </label>
+                                </div>
+                                <div class="small-12 columns">
+                                    <input type="text" placeholder="State">
+                                    <button id="newSearchBtn" type="submit" class="button"><i class="fas fa-search"></i>
+                                        Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- COVID-19 News Article Section -->
+        <div class="text-center">
+            <h4 style="margin: 0;" class="text-center">LATEST STORIES & STATISTICS</h4>
+        </div>
+
+        <hr>
+
+        <div class="grid-x grid-margin-x">
+            <div class="large-8 cell" style="border-right: 1px solid #E3E5E8;">
+
+
+                <div class="grid-x grid-margin-x">
+                    <div class="large-6 cell">
+                        <p><img src="https://placehold.it/600x370&text=Look at me!" alt="image for article"
+                                alt="article preview image"></p>
+                    </div>
+                    <div class="large-6 cell">
+                        <h5><a href="#">'Death Star' Vaporizes Its Own Planet</a></h5>
+                        <p>
+                            <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
+                            <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
+                            <span><i class="fi-comments"> 6 comments</i></span>
+                        </p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum
+                            delectus aperiam nesciunt magni facilis ullam.</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="grid-x grid-margin-x">
+                    <div class="large-6 cell">
+                        <p><img src="https://placehold.it/600x370&text=Look at me!" alt="image for article"
+                                alt="article preview image"></p>
+                    </div>
+                    <div class="large-6 cell">
+                        <h5><a href="#">NASA's SLS Rocket Sheds Saturn V Color Scheme in Design Review</a></h5>
+                        <p>
+                            <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
+                            <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
+                            <span><i class="fi-comments"> 6 comments</i></span>
+                        </p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum
+                            delectus aperiam nesciunt magni facilis ullam.</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="grid-x grid-margin-x">
+                    <div class="large-6 cell">
+                        <p><img src="https://placehold.it/600x370&text=Look at me!" alt="image for article"
+                                alt="article preview image"></p>
+                    </div>
+                    <div class="large-6 cell">
+                        <h5><a href="#">Ingredients for Life Were Always Present on Earth, Comet Suggests</a></h5>
+                        <p>
+                            <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
+                            <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
+                            <span><i class="fi-comments"> 6 comments</i></span>
+                        </p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum
+                            delectus aperiam nesciunt magni facilis ullam.</p>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="grid-x grid-margin-x">
+                    <div class="large-6 cell">
+                        <p><img src="https://placehold.it/600x370&text=Look at me!" alt="image for article"
+                                alt="article preview image"></p>
+                    </div>
+                    <div class="large-6 cell">
+                        <h5><a href="#">Ingredients for Life Were Always Present on Earth, Comet Suggests</a></h5>
+                        <p>
+                            <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
+                            <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
+                            <span><i class="fi-comments"> 6 comments</i></span>
+                        </p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum
+                            delectus aperiam nesciunt magni facilis ullam.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COVID-19 Statistics & Recommendations Section -->
+            <div class="grid-x large-4 cell">
+                <aside>
+
+                    <div>
+                        <h4 class="text-center">STATE STATISTICS</h4>
+                    </div>
+                    <hr>
+
+                    <div class="grid-x small-up-3">
+
+                        <div class="cell text-center">
+                            <i class="fas fa-virus"></i>
+                            <h6 id="caseCount">56,009</h6>
+                            <p><small>CASES</small></p>
+                            <br>
+                        </div>
+
+                        <div class="cell text-center">
+                            <i class="fas fa-skull-crossbones"></i>
+                            <h6 id="deathCount">76,905</h6>
+                            <p><small>DEATHS</small></p>
+                            <br>
+                        </div>
+
+                        <div class="cell text-center">
+                            <i class="fas fa-file-medical-alt"></i>
+                            <h6 id="recoveryCount">34,099</h6>
+                            <p><small>RECOVERIES</small></p>
+                            <br>
+                        </div>
+
+                        <div class="cell text-center" data-post-id="50079" data-site-id="499"
+                            data-site-root-folder="coronavirus" class="mb-3" data-host="www.cdc.gov"
+                            data-theme="theme-cyan" data-cdc-widget="cdcMaps"
+                            data-config-url="/coronavirus/2019-ncov/cases-updates/us-case-count-maps-charts/map-cases-us-CaseOnly_Desktop.json">
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div>
+                        <h4 class="text-center">CDC RECOMMENDATIONS</h4>
+                    </div>
+
+                    <hr>
+
+                    <div class="grid-x cell">
+                        <div class="media-object">
+                            <div class="media-object-section">
+                                <img class="thumbnail"
+                                    src="https://static.vecteezy.com/system/resources/previews/000/952/547/non_2x/woman-wearing-medical-face-mask-vector.jpg"
+                                    width="100" height="100">
+                            </div>
+                            <div class="media-object-section">
+                                <h6>Wear a face covering whenever you're in public.</h6>
+                            </div>
+                        </div>
+
+                        <div class="media-object">
+                            <div class="media-object-section">
+                                <img class="thumbnail"
+                                    src="https://i.pinimg.com/originals/90/34/a8/9034a8be54fe0cf8d2b80a62370d210d.jpg"
+                                    width="100" height="100">
+                            </div>
+                            <div class="media-object-section">
+                                <h6>Maintain at least 6 feet of distance between yourself and those around you.</h6>
+                            </div>
+                        </div>
+
+                        <div class="media-object">
+                            <div class="media-object-section">
+                                <img class="thumbnail"
+                                    src="https://images.assetsdelivery.com/compings_v2/simmmax/simmmax1708/simmmax170800070.jpg"
+                                    width="100" height="100">
+                            </div>
+                            <div class="media-object-section">
+                                <h6>Thoroughly wash and rinse your hands each time you touch a potentially infected
+                                    surface.</h6>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </article>
+
+    <br>
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="grid-x grid-margin-y expanded">
+
+            <div class="medium-6 cell">
+                <ul class="menu">
+                    <li><a class="menu-text footer-link" href="index.html">Home</a></li>
+                    <li><a class="menu-text footer-link" href="https://www.cdc.gov/coronavirus/2019-ncov/index.html"
+                            target="_blank">CDC Info</a></li>
+                </ul>
+            </div>
+
+            <div class="medium-6 cell">
+                <ul class="menu align-right">
+                    <li class="menu-text">Copyright © 2020</li>
+                </ul>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- javaScript and jQuery Script Tags -->
+    <script src="//tools.cdc.gov/TemplatePackage/contrib/widgets/tp-widget-external-loader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.2.3/motion-ui.min.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
     <script type="text/javascript"
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAayUREzm6gydcCBnHzTXcnN4PsneoLays&libraries=places"></script>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAayUREzm6gydcCBnHzTXcnN4PsneoLays&libraries=places">
+    </script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="results.js"></script>
+
 </body>
+
 </html>
+
+<!-- Todos -->
+<!-- 1. Link up elements with APIs (during team meeting tomorrow)
+2. Can you set a parameter to specify how many locations you want to produce? Limit of 4 if possible
+3. Get CDC Map to populate on the page
+4. Add icons & corresponding CDC STATISTICS
+5. Add media queries to make app mobile-first
+6. Add final touches to styling
+7. Look into adding zip code / state entry on second page -->

@@ -2,16 +2,20 @@
 <html lang="en">
 
 <head>
-
+    <!-- App's Meta Data -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>document</title>
+    <title>COVID-19 Test Finder</title>
+    <!-- Pure CSS Links -->
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
         integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Font Awesome Link -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css">
+    <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    <!-- Favicon Link -->
+    <link rel="icon" href="images/favicon.ico">
 </head>
 
 <body>
@@ -19,34 +23,22 @@
     <div class="pure-menu pure-menu-horizontal">
         <ul class="pure-menu-list">
             <li class="pure-menu-item pure-menu-selected">
-                <a href="#" class="pure-menu-link">Home</a>
+                <i class="fas fa-virus"></i>
             </li>
-            <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-                <a href="#" id="menuLink1" class="pure-menu-link">Info</a>
-                <ul class="pure-menu-children">
-                    <li class="pure-menu-item">
-                        <a href="#" class="pure-menu-link">Testing Locations</a>
-                    </li>
-                    <li class="pure-menu-item">
-                        <a href="#" class="pure-menu-link">COVID-19 News</a>
-                    </li>
-                    <li class="pure-menu-item">
-                        <a href="#" class="pure-menu-link">CDC Guidelines & Statistics</a>
-                    </li>
-                </ul>
+            <li class="pure-menu-item pure-menu-selected">
+                <a href="index.html" class="pure-menu-link">Home</a>
             </li>
         </ul>
     </div>
 
     <!-- Main Content -->
     <div class="pure-g">
-        <div class="pure-u-md-5-5">
+        <div class="pure-u-md-1-2 location-finder">
             <h1>Get Tested.</h1>
-            <p>Find a COVID Testing Center Near You</p>
-            <div> 
-                <input id="zip" type="text" class="pure-input-1-12" placeholder="Zip Code"/>
-                <label for="stacked-state">State</label>
-                <select id="stacked-state">
+            <p>Find a COVID-19 Testing Center Near You</p>
+            <form class="pure-form">
+                <input id="zip" type="text" class="pure-input-1-12" placeholder="City">
+                <select id="stateList">
                     <option>AL</option>
                     <option>AK</option>
                     <option>AZ</option>
@@ -98,14 +90,16 @@
                     <option>WI</option>
                     <option>WY</option>
                 </select>
-                <button id="btn" type="submit" class="pure-button pure-button-primary">Search</button>
-        
-    </div>
+                <button id="goButton" type="submit" class="pure-button pure-button-primary"><i
+                        class="fas fa-search"></i></button>
+            </form>
         </div>
-        
-
+        <div class="pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-2">
+            <img src="images/lp-image.png" alt="gemoetric COVID photo" width="600px" height="900px">
+        </div>
     </div>
 
+    <!-- JavaScript and jQuery Scipt Tags -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAayUREzm6gydcCBnHzTXcnN4PsneoLays&libraries=places">
