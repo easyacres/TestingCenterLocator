@@ -1,5 +1,3 @@
-
-
 var params = new URLSearchParams(window.location.search);
 
 
@@ -20,28 +18,27 @@ StatAPI = "e4d71997540c41028352933253eb7f8c";
 
 console.log("Selected state: " + stateCode);
 $.ajax({
-    type: "GET",
-    url: "https://api.smartable.ai/coronavirus/stats/US-" + stateCode,
+        type: "GET",
+        url: "https://api.smartable.ai/coronavirus/stats/US-" + stateCode,
 
-    // Request headers
-    beforeSend: function (xhrObj) {
-        xhrObj.setRequestHeader("Cache-Control", "no-cache");
-        xhrObj.setRequestHeader("Subscription-Key", StatAPI);
-    },
-})  
+        // Request headers
+        beforeSend: function (xhrObj) {
+            xhrObj.setRequestHeader("Cache-Control", "no-cache");
+            xhrObj.setRequestHeader("Subscription-Key", StatAPI);
+        },
+    })
     .then(function (data) {
         confirmedCases = data.stats.totalConfirmedCases;
         recoveredCases = data.stats.totalRecoveredCases;
         totalDeaths = data.stats.totalDeaths;
-        $("#caseCount").text(confirmedCases);  
+        myNumberAsString.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")
+        $("#caseCount").text(confirmedCases);
         $("#recoveryCount").text(recoveredCases);
         $("#deathCount").text(totalDeaths);
         console.log(confirmedCases, totalDeaths, confirmedCases);
-        
-         
-        alert("success");
+
         console.log("Success: ", data);
-})
+    })
 
 
 
@@ -80,7 +77,9 @@ console.log("Selected Zip: " + zipCode);
 function getLatLngFromZip() {
 
     //Convert entered zipcode into a latitude and longitude
-    geocoder.geocode({ 'address': zipCode }, function (results, status) {
+    geocoder.geocode({
+        'address': zipCode
+    }, function (results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             lat = results[0].geometry.location.lat();
             lng = results[0].geometry.location.lng();
@@ -130,7 +129,7 @@ function callback(results, status) {
         for (var i = 0; i < results.length; i++) {
             var location = results[i];
 
-            createMarker(location.geometry.location, location, labels[labelIndex++ % labels.length],);
+            createMarker(location.geometry.location, location, labels[labelIndex++ % labels.length], );
 
         }
         currentLocation = results[0].geometry.location;
@@ -155,7 +154,7 @@ function createMarker(position, location, label) {
         <div id="content">
             <div id="siteNotice">
             </div>
-            <h5 id="firstHeading" class="firstHeading">${location.name}</h5>
+            <h5 id="firstHeading" class="firstHeading"><strong>${location.name}</strong></h5>
             <hr>
             <div id="bodyContent">
                 <h6> ${addressArray[0]}</h6>
@@ -194,12 +193,12 @@ function getArticles(event) {
     var searchNewsCity = zipCode;
     console.log(zipCode);
     var assignedNewsArtCount = 5;
-    var assignedNewsContent ="COVID" ;
+    var assignedNewsContent = "COVID";
     var assignedImage = "required";
     // event.preventDefault();
     console.log("searchNewsCity")
     // console.log(searchNewsCity);
-    fetch("https://gnews.io/api/v3/search?q=" +  assignedNewsContent +  "&max=" + assignedNewsArtCount + "&image=" + assignedImage + "&token=60d360cd2110a8dc7e101ad4a7742e13")
+    fetch("https://gnews.io/api/v3/search?q=" + assignedNewsContent + "&max=" + assignedNewsArtCount + "&image=" + assignedImage + "&token=60d360cd2110a8dc7e101ad4a7742e13")
 
         .then(function (response) {
             return response.json();
@@ -224,8 +223,8 @@ function getArticles(event) {
                         <div class="large-6 cell">
                             <h5><a href="${data.articles[i].url}">${data.articles[i].title}</a></h5>
                             <p>
-                                <span><i class="fi-torso">${data.articles[i].source.name}</i></span>
-                                <span><i class="fi-calendar"> ${data.articles[i].publishedAt}</i></span>
+                                <span><i class="fi-web"> ${data.articles[i].source.name} </i></span>
+                                <span><i class=" fi-calendar"> ${data.articles[i].publishedAt} </i></span>
                                
                             </p>
                             <p>${data.articles[i].description}</p>
@@ -234,7 +233,7 @@ function getArticles(event) {
 
                     <hr>`
                 )
-                
+
                 console.log(data.articles[i]);
 
             }
