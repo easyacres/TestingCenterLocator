@@ -110,7 +110,7 @@ function initialize() {
 
     service = new google.maps.places.PlacesService(map);
     service.textSearch(request, callback);
-    
+
     callback();
 }
 
@@ -212,7 +212,7 @@ function getArticles(event) {
                                 alt="article preview image"></p>
                         </div>
                         <div class="large-6 cell">
-                            <h5><a href="#">${data.articles[i].title}</a></h5>
+                            <h5><a href="${data.articles[i].url}">${data.articles[i].title}</a></h5>
                             <p>
                                 <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
                                 <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
