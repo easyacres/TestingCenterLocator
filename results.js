@@ -28,20 +28,20 @@ $.ajax({
         xhrObj.setRequestHeader("Cache-Control", "no-cache");
         xhrObj.setRequestHeader("Subscription-Key", StatAPI);
     },
-})  
+})
     .then(function (data) {
         confirmedCases = data.stats.totalConfirmedCases;
         recoveredCases = data.stats.totalRecoveredCases;
         totalDeaths = data.stats.totalDeaths;
-        $("#caseCount").text(confirmedCases);  
+        $("#caseCount").text(confirmedCases);
         $("#recoveryCount").text(recoveredCases);
         $("#deathCount").text(totalDeaths);
         console.log(confirmedCases, totalDeaths, confirmedCases);
-        
-         
+
+
         alert("success");
         console.log("Success: ", data);
-})
+    })
 
 
 
@@ -71,7 +71,7 @@ var lng = '';
 var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var labelIndex = 0;
 
-
+var placeIDArray = [];
 
 
 console.log("Selected Zip: " + zipCode);
@@ -105,18 +105,104 @@ function initialize() {
     // Display Map
     map = new google.maps.Map(document.getElementById('map'), {
         center: currentLocation,
-        zoom: 11.2
+        zoom: 11.2,
+        styles: [
+            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [{color: '#263c3f'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#6b9a76'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [{color: '#38414e'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#212a37'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#9ca5b3'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [{color: '#e98d96'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#1f2835'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#f3d19c'}]
+            },
+            {
+              featureType: 'transit',
+              elementType: 'geometry',
+              stylers: [{color: '#2f3948'}]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#17263c'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#515c6d'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#17263c'}]
+            }
+          ]
     });
+
+
+
     // Request paramenters
     var request = {
         location: currentLocation,
         openNow: true,
         radius: '800',
         query: 'COVID testing'
+       
     };
 
     service = new google.maps.places.PlacesService(map);
     service.textSearch(request, callback);
+    // service.getDetails(request, callback);
+
 
     callback();
 }
@@ -130,12 +216,90 @@ function callback(results, status) {
         for (var i = 0; i < results.length; i++) {
             var location = results[i];
 
-            createMarker(location.geometry.location, location, labels[labelIndex++ % labels.length],);
+            placeIDArray.push(location.place_id);
 
-        }
+        };
         currentLocation = results[0].geometry.location;
         map.setCenter(results[0].geometry.location);
-    }
+        getLocationDetails();
+        
+
+
+    };
+};
+
+function getLocationDetails() {
+
+    placeIDArray.forEach(function (id) {
+        console.log(id);
+        var request = {
+            placeId: id,
+            fields: ['name', 'address_component', 'geometry.location', 'rating', 'formatted_phone_number', 'photos', 'url', 'opening_hours', 'website', 'reviews'],
+        };
+
+        service = new google.maps.places.PlacesService(map);
+        service.getDetails(request, callback);
+
+        function callback(place, status) {
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                var label = labels[labelIndex++ % labels.length];
+                console.log(place);
+                createMarker(place.geometry.location, place,label );
+
+                $("#location-data-display").append(`
+                     <button class="accordion">
+                     <h5>${label} )</h5>
+                        <h5 id="location-name">${place.name}</h5>
+                        <h6 id="address">
+                            ${place.address_components[0].long_name} 
+                            ${place.address_components[1].short_name}, 
+                            ${place.address_components[2].long_name}
+                        </h6>
+                    </button>
+
+                    <div class="panel">
+                        <h6 id="phone-number">${place.formatted_phone_number}</h6>
+                        <h6 id="full-address">${place.address_components[0].long_name} ${place.address_components[1].short_name}, ${place.address_components[2].long_name}, ${place.address_components[3].long_name}, ${place.address_components[4].long_name}</h6>
+                       
+                        <a target="_blank" href="${place.url}">Get Directions</a>
+                    <ul>
+                        <li>${place.opening_hours.weekday_text[0]}</li>
+                        <li>${place.opening_hours.weekday_text[1]}</li>
+                        <li>${place.opening_hours.weekday_text[2]}</li>
+                        <li>${place.opening_hours.weekday_text[3]}</li>
+                        <li>${place.opening_hours.weekday_text[4]}</li>
+                        <li>${place.opening_hours.weekday_text[5]}</li>
+                        <li>${place.opening_hours.weekday_text[6]}</li>
+
+                    </ul>
+                    <h6 class="rating">Rating: ${place.rating}</h6>
+                    <hr>
+                `);
+
+                $(".accordion").on("click", function () {
+                    /* Toggle between adding and removing the "active" class,
+                    to highlight the button that controls the panel */
+                    this.classList.toggle("active");
+                    console.log("clicked");
+        
+                    /* Toggle between hiding and showing the active panel */
+                    var panel = this.nextElementSibling;
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                    } else {
+                        panel.style.display = "block";
+                    }
+                });
+            };
+
+
+            
+
+        };
+    });
+
+
+
 };
 
 
@@ -149,18 +313,19 @@ function createMarker(position, location, label) {
         map: map
     });
 
-    var addressArray = location.formatted_address.split(",");
+    // var addressArray = location.formatted_address.split(",");
 
     var contentString = `
         <div id="content">
             <div id="siteNotice">
             </div>
             <h5 id="firstHeading" class="firstHeading">${location.name}</h5>
+            
             <hr>
             <div id="bodyContent">
-                <h6> ${addressArray[0]}</h6>
-                <h6> ${addressArray[1]}, ${addressArray[2]}</h6>
-                <h6> ${addressArray[3]}</h6>
+                <h6> ${location.address_components[0].long_name} ${location.address_components[1].short_name}</h6>
+                <h6> ${location.address_components[2].long_name}, ${location.address_components[4].short_name}</h6>
+                <h6> ${location.address_components[6].long_name}</h6>
             </div>
         </div>`
 
@@ -190,6 +355,59 @@ function createMarker(position, location, label) {
 //News API
 //======================================================================
 
+<<<<<<< HEAD
+// function getArticles(event) {
+//     var searchNewsCity = zipCode;
+//     console.log(zipCode);
+//     var assignedNewsArtCount = 5;
+//     var assignedNewsContent ="COVID" ;
+//     var assignedImage = "required";
+//     // event.preventDefault();
+//     console.log("searchNewsCity")
+//     // console.log(searchNewsCity);
+//     fetch("https://gnews.io/api/v3/search?q=" +  assignedNewsContent +  "&max=" + assignedNewsArtCount + "&image=" + assignedImage + "&token=60d360cd2110a8dc7e101ad4a7742e13")
+
+//         .then(function (response) {
+//             return response.json();
+
+//         })
+//         .then(function (data) {
+//             console.log(data);
+//             for (var i = 0; i < data.articles.length; i++) {
+//                 var newsArticles = $("#newsArticles")
+//                 // var grabNewsTitle = data.articles[i].title;
+//                 // var grabNewsUrl = data.articles[i].url;
+//                 // var newNewsDiv = $("<div>").appendTo(newsArticles);
+//                 // $("<h3>").text(grabNewsTitle).appendTo(newNewsDiv);
+//                 // $("<p>").text(grabNewsUrl).appendTo(newNewsDiv);
+//                 newsArticles.append(
+
+//                     `<div class="grid-x grid-margin-x">
+//                         <div class="large-6 cell">
+//                             <p><img src="${data.articles[i].image}"
+//                                 alt="article image info ${data.articles[i].source.name, data.articles[i].title }"></p>
+//                         </div>
+//                         <div class="large-6 cell">
+//                             <h5><a href="${data.articles[i].url}">${data.articles[i].title}</a></h5>
+//                             <p>
+//                                 <span><i class="fi-torso">${data.articles[i].source.name}</i></span>
+//                                 <span><i class="fi-calendar"> ${data.articles[i].publishedAt}</i></span>
+
+//                             </p>
+//                             <p>${data.articles[i].description}</p>
+//                         </div>
+//                     </div>
+
+//                     <hr>`
+//                 )
+
+//                 console.log(data.articles[i]);
+
+//             }
+//             // 
+//         });
+// }
+=======
 function getArticles(event) {
     var searchNewsCity = zipCode;
     console.log(zipCode);
@@ -241,8 +459,9 @@ function getArticles(event) {
             // 
         });
 }
+>>>>>>> 241f9692766b59708ba70b456516c44f2a39c8b6
 
 
 
 getLatLngFromZip();
-getArticles();
+// getArticles();
