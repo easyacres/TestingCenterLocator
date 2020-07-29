@@ -61,3 +61,7 @@ footer {
 .footer-link:hover {
     opacity: .7;
 }
+#map {
+    width: 773px;
+    height: 660px;
+}
