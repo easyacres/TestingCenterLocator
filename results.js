@@ -110,6 +110,7 @@ function initialize() {
 
     service = new google.maps.places.PlacesService(map);
     service.textSearch(request, callback);
+    
     callback();
 }
 
@@ -121,7 +122,7 @@ function callback(results, status) {
         //Loop that runs through our results 
         for (var i = 0; i < results.length; i++) {
             var location = results[i];
-            
+
             createMarker(location.geometry.location, location, labels[labelIndex++ % labels.length],);
 
         }
@@ -142,7 +143,7 @@ function createMarker(position, location, label) {
     });
 
     var addressArray = location.formatted_address.split(",");
-    
+
     var contentString = `
         <div id="content">
             <div id="siteNotice">
@@ -157,7 +158,7 @@ function createMarker(position, location, label) {
         </div>`
 
 
-        
+
     const infowindow = new google.maps.InfoWindow({
         content: contentString,
         maxWidth: 500
@@ -172,7 +173,7 @@ function createMarker(position, location, label) {
         infowindow.close();
     });
     marker.addListener('click', () => {
-        
+
     });
 
 
@@ -182,8 +183,56 @@ function createMarker(position, location, label) {
 //News API
 //======================================================================
 
+function getArticles(event) {
+    var searchNewsCity = zipCode;
+    var assignedNewsArtCount = 5;
+    // event.preventDefault();
+    console.log("searchNewsCity")
+    console.log(searchNewsCity);
+    fetch("https://gnews.io/api/v3/search?q=" + searchNewsCity + "&max=" + assignedNewsArtCount + "&token=635c45291e6cf17423f49b624dc5f757")
 
+        .then(function (response) {
+            return response.json();
+
+        })
+        .then(function (data) {
+            console.log(data);
+            for (var i = 0; i < data.articles.length; i++) {
+                var newsArticles = $("#newsArticles")
+                // var grabNewsTitle = data.articles[i].title;
+                // var grabNewsUrl = data.articles[i].url;
+                // var newNewsDiv = $("<div>").appendTo(newsArticles);
+                // $("<h3>").text(grabNewsTitle).appendTo(newNewsDiv);
+                // $("<p>").text(grabNewsUrl).appendTo(newNewsDiv);
+                newsArticles.append(
+
+                    `<div class="grid-x grid-margin-x">
+                        <div class="large-6 cell">
+                            <p><img src="https://placehold.it/600x370&text=Look at me!" alt="image for article"
+                                alt="article preview image"></p>
+                        </div>
+                        <div class="large-6 cell">
+                            <h5><a href="#">${data.articles[i].title}</a></h5>
+                            <p>
+                                <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
+                                <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
+                               
+                            </p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsumdelectus aperiam nesciunt magni facilis ullam.</p>
+                        </div>
+                    </div>
+
+                    <hr>`
+                )
+                
+                console.log(data.articles[i]);
+
+            }
+            // 
+        });
+}
 
 
 
 getLatLngFromZip();
+getArticles();
