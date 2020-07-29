@@ -34,10 +34,20 @@ $.ajax({
         xhrObj.setRequestHeader("Cache-Control", "no-cache");
         xhrObj.setRequestHeader("Subscription-Key", StatAPI);
     },
-})
-    .done(function (data) {
+})  
+    .then(function (data) {
+        // confirmedCases = data.stats.totalConfirmedCases;
+        // recoveredCases = data.stats.totalRecoveredCases;
+        // totalDeaths = data.stats.totalDeaths;
+        // $(".caseCount").text(confirmedCases);  
+        // $(".recoveryCount").text(recoveredCases);
+        // $(".deathCount").text(totalDeaths);
+        // $("#caseCount").append(confirmedCases);
+        // console.log(totalConfirmedCases, totalDeaths, confirmedCases);
         
-        console.log("Covid dtata:", data)
+         
+        alert("success");
+        console.log("Success: ", data);
     })
     .fail(function () {
         alert("error");
