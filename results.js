@@ -117,7 +117,7 @@ function initialize() {
 
     service = new google.maps.places.PlacesService(map);
     service.textSearch(request, callback);
-    
+
     callback();
 }
 
@@ -192,13 +192,14 @@ function createMarker(position, location, label) {
 
 function getArticles(event) {
     var searchNewsCity = zipCode;
+    console.log(zipCode);
     var assignedNewsArtCount = 5;
-    var assignedNewsContent ="Covid Testing Centers Near Me";
+    var assignedNewsContent ="COVID" ;
     var assignedImage = "required";
     // event.preventDefault();
     console.log("searchNewsCity")
     // console.log(searchNewsCity);
-    fetch("https://gnews.io/api/v3/search?q=" +  assignedNewsContent + "&in=" + searchNewsCity + "&max=" + assignedNewsArtCount + "&image=" + assignedImage + "&token=e9869e383699068c951d662dbc54a452")
+    fetch("https://gnews.io/api/v3/search?q=" +  assignedNewsContent + "&max=" + assignedNewsArtCount + "&image=" + assignedImage + "&token=e9869e383699068c951d662dbc54a452")
 
         .then(function (response) {
             return response.json();
@@ -221,7 +222,7 @@ function getArticles(event) {
                                 alt="article image info ${data.articles[i].source.name, data.articles[i].title }"></p>
                         </div>
                         <div class="large-6 cell">
-                            <h5><a href="#">${data.articles[i].title}</a></h5>
+                            <h5><a href="${data.articles[i].url}">${data.articles[i].title}</a></h5>
                             <p>
                                 <span><i class="fi-torso">${data.articles[i].source.name}</i></span>
                                 <span><i class="fi-calendar"> ${data.articles[i].publishedAt}</i></span>
