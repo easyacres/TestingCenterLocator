@@ -28,14 +28,21 @@ $.ajax({
         xhrObj.setRequestHeader("Cache-Control", "no-cache");
         xhrObj.setRequestHeader("Subscription-Key", StatAPI);
     },
+})  
+    .then(function (data) {
+        confirmedCases = data.stats.totalConfirmedCases;
+        recoveredCases = data.stats.totalRecoveredCases;
+        totalDeaths = data.stats.totalDeaths;
+        $("#caseCount").text(confirmedCases);  
+        $("#recoveryCount").text(recoveredCases);
+        $("#deathCount").text(totalDeaths);
+        console.log(confirmedCases, totalDeaths, confirmedCases);
+        
+         
+        alert("success");
+        console.log("Success: ", data);
 })
-    .done(function (data) {
 
-        console.log("Covid dtata:", data)
-    })
-    .fail(function () {
-        alert("error");
-    });
 
 
 
