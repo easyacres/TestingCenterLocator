@@ -199,7 +199,7 @@ function getArticles(event) {
     // event.preventDefault();
     console.log("searchNewsCity")
     // console.log(searchNewsCity);
-    fetch("https://gnews.io/api/v3/search?q=" +  assignedNewsContent +  "&max=" + assignedNewsArtCount + "&image=" + assignedImage + "&token=60d360cd2110a8dc7e101ad4a7742e13")
+    fetch("https://gnews.io/api/v3/search?q=" +  assignedNewsContent + "&max=" + assignedNewsArtCount + "&image=" + assignedImage + "&token=e9869e383699068c951d662dbc54a452")
 
         .then(function (response) {
             return response.json();
