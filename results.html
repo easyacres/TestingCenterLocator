@@ -48,12 +48,13 @@
                 <div id="map"></div>
             </div>
             <div class="medium-4 cell">
-                <p><img src="https://placehold.it/400x100&text=Other cool article" alt="article promo image"
-                        alt="advertisement for deep fried Twinkies"></p>
-                <p><img src="https://placehold.it/400x100&text=Other cool article" alt="article promo image"></p>
-                <p><img src="https://placehold.it/400x100&text=Other cool article" alt="article promo image"
-                        alt="advertisement for deep fried Twinkies"></p>
-                <p><img src="https://placehold.it/400x100&text=Other cool article" alt="article promo image"></p>
+                <div id="location-data-display">
+
+
+
+
+
+                </div>
                 <div id="newSearch" class="medium-5 large-3 columns">
                     <div class="callout secondary">
                         <form>
@@ -137,7 +138,7 @@
         <hr>
 
         <div class="grid-x grid-margin-x">
-            <div class="large-8 cell" style="border-right: 1px solid #E3E5E8;">
+            <div id="newsArticles" class="large-8 cell" style="border-right: 1px solid #E3E5E8;">
 
 
                 <!-- <div class="grid-x grid-margin-x">
@@ -248,11 +249,19 @@
                             <br>
                         </div>
 
-                        <div class="cell text-center" data-post-id="50079" data-site-id="499"
-                            data-site-root-folder="coronavirus" class="mb-3" data-host="www.cdc.gov"
-                            data-theme="theme-cyan" data-cdc-widget="cdcMaps"
-                            data-config-url="/coronavirus/2019-ncov/cases-updates/us-case-count-maps-charts/map-cases-us-CaseOnly_Desktop.json">
-                        </div>
+
+
+
+                    </div>
+                    <hr>
+                    <div>
+                        <h4 class="text-center">NATIONAL STATISTICS</h4>
+                    </div>
+
+                    <hr>
+                    <div data-post-id="50079" data-site-id="499" data-site-root-folder="coronavirus" class="mb-3"
+                        data-host="www.cdc.gov" data-theme="theme-cyan" data-cdc-widget="cdcMaps"
+                        data-config-url="/coronavirus/2019-ncov/cases-updates/us-case-count-maps-charts/map-cases-us-CaseOnly_Desktop.json">
                     </div>
 
                     <hr>
@@ -282,7 +291,8 @@
                                     width="100" height="100">
                             </div>
                             <div class="media-object-section">
-                                <h6>Maintain at least 6 feet of distance between yourself and those around you.</h6>
+                                <h6>Maintain at least 6 feet of distance between yourself and those around you.
+                                </h6>
                             </div>
                         </div>
 
@@ -293,7 +303,8 @@
                                     width="100" height="100">
                             </div>
                             <div class="media-object-section">
-                                <h6>Thoroughly wash and rinse your hands each time you touch a potentially infected
+                                <h6>Thoroughly wash and rinse your hands each time you touch a potentially
+                                    infected
                                     surface.</h6>
                             </div>
                         </div>
@@ -329,6 +340,7 @@
 
     <!-- javaScript and jQuery Script Tags -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="//tools.cdc.gov/TemplatePackage/contrib/widgets/tp-widget-external-loader.js"></script>
     <!-- <script src="//tools.cdc.gov/TemplatePackage/contrib/widgets/tp-widget-external-loader.js"></script> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.2.3/motion-ui.min.js"></script> -->
@@ -346,8 +358,8 @@
 
 <!-- Todos -->
 <!-- 1. Link up elements with APIs (during team meeting tomorrow)
-2. Can you set a parameter to specify how many locations you want to produce? Limit of 4 if possible
-3. Get CDC Map to populate on the page
+    2. Can you set a parameter to specify how many locations you want to produce? Limit of 4 if possible
+    3. Get CDC Map to populate on the page
 4. Add icons & corresponding CDC STATISTICS
 5. Add media queries to make app mobile-first
 6. Add final touches to styling
