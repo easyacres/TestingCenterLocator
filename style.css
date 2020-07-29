@@ -31,26 +31,37 @@ body {
 }
 
 .location-finder {
-    margin-top: 12rem;
+    margin-top: 10rem;
+    border-radius: 0rem;
+    
 }
 
 h1 {
     font-size: 100px;
     margin-bottom: 0;
     color: #e7717d;
+    text-align: center;
+  
+   
+    
 }
+    
 
 p {
     font-size: 22px;
     margin-top: 10px;
+    text-align: center;
+  
+    
+
+    
 }
 
 input {
-    text-align: center;
     background: transparent;
     color: white;
     border: 1px solid white !important;
-
+    
 }
 
 input::placeholder {
@@ -62,7 +73,8 @@ input:hover {
 }
 
 img {
-    margin-bottom: 0;
+    margin-bottom: 10;
+    
 }
 
 #stateList {
@@ -86,4 +98,11 @@ img {
 #goButton:hover {
     opacity: .8;
 }
-
+#stateList{
+    color: white;
+    background-color: #282828;
+}
+.pure-form {
+    text-align: center;
+    
+}
