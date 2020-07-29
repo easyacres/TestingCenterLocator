@@ -192,13 +192,14 @@ function createMarker(position, location, label) {
 
 function getArticles(event) {
     var searchNewsCity = zipCode;
+    console.log(zipCode);
     var assignedNewsArtCount = 5;
-    var assignedNewsContent ="Covid Testing Centers Near Me";
+    var assignedNewsContent ="COVID" ;
     var assignedImage = "required";
     // event.preventDefault();
     console.log("searchNewsCity")
     // console.log(searchNewsCity);
-    fetch("https://gnews.io/api/v3/search?q=" +  assignedNewsContent + "&in=" + searchNewsCity + "&max=" + assignedNewsArtCount + "&image=" + assignedImage + "&token=635c45291e6cf17423f49b624dc5f757")
+    fetch("https://gnews.io/api/v3/search?q=" +  assignedNewsContent +  "&max=" + assignedNewsArtCount + "&image=" + assignedImage + "&token=60d360cd2110a8dc7e101ad4a7742e13")
 
         .then(function (response) {
             return response.json();
