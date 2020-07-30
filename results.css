@@ -37,16 +37,30 @@
 
 .fa-phone-alt {
     margin-right: 10px;
+    color: #e7717d;
 }
 
 .fa-map-marker-alt {
-    margin-right: 10px;
+    margin-right: 5px;
+    color: #e7717d;
+}
+
+.fa-clock {
+    margin-right: 5px;
+    color: #e7717d;
+}
+
+.time {
+    font-size: .85rem;
+}
+
+#location-name {
+    margin-bottom: 15px;
 }
 
 h6 {
     font-size: 1.07rem;
 }
-
 
 
 #newSearchBtn {
@@ -70,6 +84,33 @@ footer {
     opacity: .7;
 }
 
+#banner {
+    margin: 0;
+    /* top: 70; */
+    right: 0;
+    height: 161PX;
+    width: 100%;
+    text-align: center;
+    background-color: #282828;
+    /* position: absolute; */
+    padding-top: 30px;
+    /* margin-bottom: 70px; */
+}
+
+.banner-img {
+    width: 800px;
+    top: 68px;
+    right: 0;
+    position: absolute;
+}
+
+.banner-text {
+    font-size: 50px;
+    margin-bottom: 0;
+    color: #e7717d;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 #map {
     width: 773px;
@@ -89,6 +130,9 @@ footer {
     overflow: auto;
 }
 
+#directions:hover {
+    opacity: .7;
+}
 
 .accordion {
     background-color: #eee;
@@ -155,3 +199,27 @@ footer {
     height: 100%;
     overflow: hidden
 }
+
+@media screen and (max-width: 1200px) {
+    #map {
+        width: 450px;
+        height: 350px;
+        margin-bottom: 10px;
+        margin-right: auto;
+        margin-left: auto;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #location-data-display {
+        height: 300px;
+        width: 100%;
+        margin-bottom: 35px;
+        margin-right: auto;
+        margin-left: auto;
+        border: 1px solid #ccc;
+        overflow: auto;
+    }
+}
+
+;
