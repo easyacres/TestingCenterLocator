@@ -62,6 +62,7 @@ footer {
     opacity: .7;
 }
 
+
 #map {
     width: 773px;
     height: 660px;
@@ -74,6 +75,7 @@ footer {
     border:1px solid #ccc;
     overflow:auto;
 }
+
 
 .accordion {
     background-color: #eee;
@@ -101,3 +103,31 @@ footer {
     overflow: hidden;
    
   }
+
+
+  #loader-wrapper{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #282828;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+  }
+  .loader {
+    border: 16px solid #f3f3f3; 
+    border-top: 16px solid #e7717d; 
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .lock-screen {margin: 0; height: 100%; overflow: hidden}
