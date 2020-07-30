@@ -13,6 +13,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-prototype.min.css">
     <link href='https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet'
         type='text/css'>
+    <!-- Pure CSS Links -->
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
         integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
@@ -39,27 +40,22 @@
             </ul>
         </div>
     </div>
-    
-    <div id="banner">
-      <h1><span class="banner-text">Testing Center Locations</span> <img class="banner-img" src="images/Banner.png"></h1> 
+    <hr>
+
+    <!-- Main Section Header #2 -->
+    <div class="text-center">
+        <h4 style="margin: 0;" class="text-center">COVID-19 TESTING CENTERS</h4>
     </div>
-    <div></div>
-    <br>
+    <hr>
+
     <!-- Google Maps Section -->
     <article class="grid-container">
         <div class="grid-x grid-margin-x">
             <div class="medium-8 cell">
-
                 <div id="map"></div>
             </div>
             <div class="medium-4 cell">
-
                 <div id="location-data-display">
-
-
-
-
-
                 </div>
 
                 <div id="newSearch" class="medium-5 large-3 columns">
@@ -68,7 +64,7 @@
                             <div class="row">
                                 <div class="small-12 columns">
                                     <label>Search for a New City
-                                        <input id="newCity" type="text" placeholder="City">
+                                        <input id="resultsNewCity" type="text" placeholder="City">
                                     </label>
                                 </div>
                                 <div class="small-12 columns">
@@ -137,21 +133,17 @@
 
         <hr>
 
-        <!-- COVID-19 News Article Section -->
+        <!-- Main Section #2 Header -->
         <div class="text-center">
             <h4 style="margin: 0;" class="text-center">LATEST STORIES & STATISTICS</h4>
         </div>
-
         <hr>
 
         <div class="grid-x grid-margin-x">
             <div id="newsArticles" class="large-8 cell" style="border-right: 1px solid #E3E5E8;">
-
-
-
             </div>
 
-            <!-- COVID-19 Statistics & Recommendations Section -->
+            <!-- State Statistics Section -->
             <div class="grid-x large-4 cell">
                 <aside>
 
@@ -183,27 +175,25 @@
                             <br>
                         </div>
 
-
-
-
                     </div>
+
+                    <!-- National Statistics Section -->
                     <hr>
                     <div>
                         <h4 class="text-center">NATIONAL STATISTICS</h4>
                     </div>
-
                     <hr>
+
                     <div data-post-id="50079" data-site-id="499" data-site-root-folder="coronavirus" class="mb-3"
                         data-host="www.cdc.gov" data-theme="theme-cyan" data-cdc-widget="cdcMaps"
                         data-config-url="/coronavirus/2019-ncov/cases-updates/us-case-count-maps-charts/map-cases-us-CaseOnly_Desktop.json">
                     </div>
 
+                    <!-- CDC Recommendations Section -->
                     <hr>
-
                     <div>
                         <h4 class="text-center">CDC RECOMMENDATIONS</h4>
                     </div>
-
                     <hr>
 
                     <div class="grid-x cell">
@@ -242,6 +232,18 @@
                                     surface.</h6>
                             </div>
                         </div>
+
+                        <div class="media-object">
+                            <div class="media-object-section">
+                                <img class="thumbnail"
+                                    src="https://img.pngio.com/supplies-vector-royalty-free-download-huge-clipart-cleaning-png-clean-920_1027.png"
+                                    width="100" height="100">
+                            </div>
+                            <div class="media-object-section">
+                                <h6>Clean and disinfect high-touch surfaces daily in household common areas using
+                                    EPA-registered disinfectants.</h6>
+                            </div>
+                        </div>
                     </div>
                 </aside>
             </div>
@@ -254,7 +256,6 @@
     <footer>
 
         <div class="grid-x grid-margin-y expanded">
-
             <div class="medium-6 cell">
                 <ul class="menu">
                     <li><a class="menu-text footer-link" href="index.html">Home</a></li>
@@ -262,25 +263,18 @@
                             target="_blank">CDC Info</a></li>
                 </ul>
             </div>
-
-            <div class="medium-6 cell">
-                <ul class="menu align-right">
-                    <li class="menu-text">Copyright © 2020</li>
-                </ul>
-            </div>
         </div>
 
     </footer>
+
     <!-- Loading screen wrapper -->
     <div id="loader-wrapper">
         <div div class="loader"></div>
-
     </div>
 
     <!-- javaScript and jQuery Script Tags -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="//tools.cdc.gov/TemplatePackage/contrib/widgets/tp-widget-external-loader.js"></script>
-    <script src="fontawesome-markers.min.js"></script>
     <!-- <script src="//tools.cdc.gov/TemplatePackage/contrib/widgets/tp-widget-external-loader.js"></script> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.2.3/motion-ui.min.js"></script> -->
@@ -288,19 +282,7 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAayUREzm6gydcCBnHzTXcnN4PsneoLays&libraries=places">
     </script>
     <script src="results.js"></script>
-    <!-- <script>
-        $(document).foundation();
-    </script> -->
 
 </body>
 
 </html>
-
-<!-- Todos -->
-<!-- 1. Link up elements with APIs (during team meeting tomorrow)
-    2. Can you set a parameter to specify how many locations you want to produce? Limit of 4 if possible
-    3. Get CDC Map to populate on the page
-4. Add icons & corresponding CDC STATISTICS
-5. Add media queries to make app mobile-first
-6. Add final touches to styling
-7. Look into adding zip code / state entry on second page -->
