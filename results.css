@@ -35,6 +35,14 @@
     color: #659dbd;
 }
 
+.fa-phone-alt {
+    margin-right: 10px;
+}
+
+.fa-map-marker-alt {
+    margin-right: 10px;
+}
+
 h6 {
     font-size: 1.07rem;
 }
