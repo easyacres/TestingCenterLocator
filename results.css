@@ -35,6 +35,14 @@
     color: #659dbd;
 }
 
+.fa-phone-alt {
+    margin-right: 10px;
+}
+
+.fa-map-marker-alt {
+    margin-right: 10px;
+}
+
 h6 {
     font-size: 1.07rem;
 }
@@ -68,12 +76,17 @@ footer {
     height: 660px;
 }
 
+#newStateList {
+    color: grey;
+    margin-bottom: 17px;
+}
+
 #location-data-display {
-    height:400px;
-    width:369px;
+    height: 400px;
+    width: 369px;
     margin-bottom: 35px;
-    border:1px solid #ccc;
-    overflow:auto;
+    border: 1px solid #ccc;
+    overflow: auto;
 }
 
 
@@ -88,46 +101,57 @@ footer {
     outline: none;
     transition: 0.4s;
     margin-bottom: 10px;
-  }
-  
-  /* Add a background color to the button if it is clicked on and when you move the mouse over it */
-  .active, .accordion:hover {
+}
+
+/* Add a background color to the button if it is clicked on and when you move the mouse over it */
+.active,
+.accordion:hover {
     background-color: #ccc;
-  }
-  
-    /* Style the accordion panel */
-  .panel {
+}
+
+/* Style the accordion panel */
+.panel {
     padding: 0 18px;
     background-color: white;
     display: none;
     overflow: hidden;
-   
-  }
+}
 
 
-  #loader-wrapper{
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: #282828;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      
-  }
-  .loader {
-    border: 16px solid #f3f3f3; 
-    border-top: 16px solid #e7717d; 
+#loader-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #282828;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #e7717d;
     border-radius: 50%;
     width: 120px;
     height: 120px;
     animation: spin 2s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  .lock-screen {margin: 0; height: 100%; overflow: hidden}
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.lock-screen {
+    margin: 0;
+    height: 100%;
+    overflow: hidden
+}

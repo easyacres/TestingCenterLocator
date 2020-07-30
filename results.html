@@ -5,10 +5,7 @@
     <!-- App's Meta Data -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>COVID-19 Test Finder</title>
-
-    <link rel="stylesheet" href="reset.css">
-
+    <title>COVID-19 | Test Finder</title>
     <!-- Foundation CSS Links -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.2.3/motion-ui.min.css">
@@ -25,6 +22,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css">
     <!-- Favicon Link -->
     <link rel="icon" href="images/favicon.ico">
+
 </head>
 
 <body class="lock-screen">
@@ -47,14 +45,14 @@
     <article class="grid-container">
         <div class="grid-x grid-margin-x">
             <div class="medium-8 cell">
-               
+
                 <div id="map"></div>
             </div>
             <div class="medium-4 cell">
 
                 <div id="location-data-display">
 
-                    
+
 
 
 
@@ -66,11 +64,63 @@
                             <div class="row">
                                 <div class="small-12 columns">
                                     <label>Search for a New City
-                                        <input type="text" placeholder="City">
+                                        <input id="newCity" type="text" placeholder="City">
                                     </label>
                                 </div>
                                 <div class="small-12 columns">
-                                    <input type="text" placeholder="State">
+                                    <select id="newStateList">
+                                        <option>AL</option>
+                                        <option>AK</option>
+                                        <option>AZ</option>
+                                        <option>AR</option>
+                                        <option>CA</option>
+                                        <option>CO</option>
+                                        <option>CT</option>
+                                        <option>DE</option>
+                                        <option>FL</option>
+                                        <option>GA</option>
+                                        <option>HI</option>
+                                        <option>ID</option>
+                                        <option>IL</option>
+                                        <option>IN</option>
+                                        <option>IA</option>
+                                        <option>KS</option>
+                                        <option>KY</option>
+                                        <option>LA</option>
+                                        <option>ME</option>
+                                        <option>MD</option>
+                                        <option>MA</option>
+                                        <option>MI</option>
+                                        <option>MN</option>
+                                        <option>MS</option>
+                                        <option>MO</option>
+                                        <option>MT</option>
+                                        <option>NE</option>
+                                        <option>NV</option>
+                                        <option>NH</option>
+                                        <option>NJ</option>
+                                        <option>NM</option>
+                                        <option>NY</option>
+                                        <option>NC</option>
+                                        <option>ND</option>
+                                        <option>OH</option>
+                                        <option>OK</option>
+                                        <option>OR</option>
+                                        <option>PA</option>
+                                        <option>RI</option>
+                                        <option>SC</option>
+                                        <option>SD</option>
+                                        <option>TN</option>
+                                        <option>TX</option>
+                                        <option>UT</option>
+                                        <option>VT</option>
+                                        <option>VA</option>
+                                        <option>WA</option>
+                                        <option>WV</option>
+                                        <option>WI</option>
+                                        <option>WY</option>
+                                    </select>
+
                                     <button id="newSearchBtn" type="submit" class="button"><i class="fas fa-search"></i>
                                         Search</button>
                                 </div>
@@ -94,7 +144,7 @@
             <div id="newsArticles" class="large-8 cell" style="border-right: 1px solid #E3E5E8;">
 
 
-              
+
             </div>
 
             <!-- COVID-19 Statistics & Recommendations Section -->
@@ -219,16 +269,20 @@
     </footer>
     <!-- Loading screen wrapper -->
     <div id="loader-wrapper">
-        <div   div class="loader"></div>
+        <div div class="loader"></div>
 
     </div>
 
     <!-- javaScript and jQuery Script Tags -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="//tools.cdc.gov/TemplatePackage/contrib/widgets/tp-widget-external-loader.js"></script>
+    <script src="fontawesome-markers.min.js"></script>
+    <!-- <script src="//tools.cdc.gov/TemplatePackage/contrib/widgets/tp-widget-external-loader.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.2.3/motion-ui.min.js"></script> -->
     <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAayUREzm6gydcCBnHzTXcnN4PsneoLays&libraries=places">
-        </script>
+    </script>
     <script src="results.js"></script>
     <!-- <script>
         $(document).foundation();
