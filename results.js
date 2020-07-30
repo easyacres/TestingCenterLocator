@@ -43,6 +43,8 @@ $(document).ready(function () {
     //======================================================================
     //google maps API
     //======================================================================
+
+    // globar variable for google mapsAPI
     var map;
     var service;
     var currentLocation;
@@ -84,6 +86,7 @@ $(document).ready(function () {
             center: currentLocation,
             zoom: 11.4,
             disableDefaultUI: true,
+            // map styling
             styles: [{
                     "elementType": "geometry",
                     "stylers": [{
@@ -220,27 +223,28 @@ $(document).ready(function () {
 
         service = new google.maps.places.PlacesService(map);
         service.textSearch(request, callback);
-        // service.getDetails(request, callback);
-
-
         callback();
     }
 
-    // Function for pulling Testing Center data
+    // Function for pulling Testing Centers
     function callback(results, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             console.log("Testing center Results: ", results);
             //Loop that runs through our results 
             for (var i = 0; i < results.length; i++) {
                 var location = results[i];
+                // pull the place id and push to array
                 placeIDArray.push(location.place_id);
             };
+            // make current location the very first result
             currentLocation = results[0].geometry.location;
             map.setCenter(results[0].geometry.location);
+            // run out getLocationDetails function
             getLocationDetails();
         };
     };
 
+    // 
     function getLocationDetails() {
         placeIDArray.forEach(function (id) {
             var request = {
@@ -260,6 +264,7 @@ $(document).ready(function () {
             };
         });
     };
+
 
     function displayLocationData(label, place) {
         $("#location-data-display").append(`
@@ -302,9 +307,7 @@ $(document).ready(function () {
         var marker = new google.maps.Marker({
             animation: google.maps.Animation.DROP,
             position: position,
-            icon: {
-                url: "images/pin.png"
-              },
+            icon: {url: "images/pin.png"},
             // label: label,
             map: map
         });

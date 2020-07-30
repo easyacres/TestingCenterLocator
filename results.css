@@ -155,3 +155,67 @@ footer {
     height: 100%;
     overflow: hidden
 }
+
+#banner {
+    margin:0;
+    /* top: 70; */
+    right: 0;
+    height: 161PX;
+    width: 100%;
+    text-align: center;
+    background-color: #282828;
+    /* position: absolute; */
+    padding-top: 30px;
+    /* margin-bottom: 70px; */
+}
+
+.banner-img {
+    width: 800px;
+    top: 68px;
+    
+    right: 0;
+    position: absolute;
+}
+
+.banner-text {
+    font-size: 50px;
+    margin-bottom: 0;
+    color: #e7717d;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+@media screen and (max-width: 1200px){ 
+
+    #map {
+        width: 450px;
+        height: 350px;
+        margin-bottom: 10px;
+        margin-right: auto;
+        margin-left: auto;
+        justify-content: center;
+        align-items: center;
+    }
+    #location-data-display {
+        height: 300px;
+        width: 100%;
+        margin-bottom: 35px;
+        margin-right: auto;
+        margin-left: auto;
+        border: 1px solid #ccc;
+        overflow: auto;
+    }
+    .banner-img {
+        opacity: 0;
+    }
+    .banner-text {
+        font-size: 40px;
+        
+    }
+    #banner {
+       
+        padding-top: 20px;
+       
+    }
+}
