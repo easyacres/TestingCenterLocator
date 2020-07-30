@@ -25,7 +25,7 @@
 
 </head>
 
-<body>
+<body class="lock-screen">
     <!-- Navigation Menu -->
     <div class="top-bar">
         <div class="top-bar-left">
@@ -45,10 +45,11 @@
     <article class="grid-container">
         <div class="grid-x grid-margin-x">
             <div class="medium-8 cell">
-                <!-- <p><img src="https://placehold.it/900x773&text=Promoted Article" alt="main article image"></p> -->
+
                 <div id="map"></div>
             </div>
             <div class="medium-4 cell">
+
                 <div id="location-data-display">
 
 
@@ -56,6 +57,7 @@
 
 
                 </div>
+
                 <div id="newSearch" class="medium-5 large-3 columns">
                     <div class="callout secondary">
                         <form>
@@ -142,80 +144,7 @@
             <div id="newsArticles" class="large-8 cell" style="border-right: 1px solid #E3E5E8;">
 
 
-                <!-- <div class="grid-x grid-margin-x">
-                    <div class="large-6 cell">
-                        <p><img src="https://placehold.it/600x370&text=Look at me!" alt="image for article"
-                                alt="article preview image"></p>
-                    </div>
-                    <div class="large-6 cell">
-                        <h5><a href="#">'Death Star' Vaporizes Its Own Planet</a></h5>
-                        <p>
-                            <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
-                            <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
-                            <span><i class="fi-comments"> 6 comments</i></span>
-                        </p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum
-                            delectus aperiam nesciunt magni facilis ullam.</p>
-                    </div>
-                </div>
 
-                <hr> -->
-                <div id="newsArticles">
-
-                </div>
-                <!-- <div class="grid-x grid-margin-x">
-                    <div class="large-6 cell">
-                        <p><img src="https://placehold.it/600x370&text=Look at me!" alt="image for article"
-                                alt="article preview image"></p>
-                    </div>
-                    <div class="large-6 cell">
-                        <h5><a href="#">NASA's SLS Rocket Sheds Saturn V Color Scheme in Design Review</a></h5>
-                        <p>
-                            <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
-                            <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
-                            <span><i class="fi-comments"> 6 comments</i></span>
-                        </p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum
-                            delectus aperiam nesciunt magni facilis ullam.</p>
-                    </div>
-                </div>
-
-                <hr>
-
-                <div class="grid-x grid-margin-x">
-                    <div class="large-6 cell">
-                        <p><img src="https://placehold.it/600x370&text=Look at me!" alt="image for article"
-                                alt="article preview image"></p>
-                    </div>
-                    <div class="large-6 cell">
-                        <h5><a href="#">Ingredients for Life Were Always Present on Earth, Comet Suggests</a></h5>
-                        <p>
-                            <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
-                            <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
-                            <span><i class="fi-comments"> 6 comments</i></span>
-                        </p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum
-                            delectus aperiam nesciunt magni facilis ullam.</p>
-                    </div>
-                </div>
-
-                <hr>
-                <div class="grid-x grid-margin-x">
-                    <div class="large-6 cell">
-                        <p><img src="https://placehold.it/600x370&text=Look at me!" alt="image for article"
-                                alt="article preview image"></p>
-                    </div>
-                    <div class="large-6 cell">
-                        <h5><a href="#">Ingredients for Life Were Always Present on Earth, Comet Suggests</a></h5>
-                        <p>
-                            <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
-                            <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
-                            <span><i class="fi-comments"> 6 comments</i></span>
-                        </p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum
-                            delectus aperiam nesciunt magni facilis ullam.</p>
-                    </div>
-                </div>-->
             </div>
 
             <!-- COVID-19 Statistics & Recommendations Section -->
@@ -338,6 +267,11 @@
         </div>
 
     </footer>
+    <!-- Loading screen wrapper -->
+    <div id="loader-wrapper">
+        <div div class="loader"></div>
+
+    </div>
 
     <!-- javaScript and jQuery Script Tags -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
