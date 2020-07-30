@@ -6,6 +6,8 @@ $(document).ready(function () {
     var zipCode = params.get("zip") //grab from url string
     var stateCode = params.get("state") //grab from url string
 
+
+
     //======================================================================
     //covid stats API
     //======================================================================
@@ -41,8 +43,6 @@ $(document).ready(function () {
     //======================================================================
     //google maps API
     //======================================================================
-
-
     var map;
     var service;
     var currentLocation;
@@ -302,7 +302,10 @@ $(document).ready(function () {
         var marker = new google.maps.Marker({
             animation: google.maps.Animation.DROP,
             position: position,
-            label: label,
+            icon: {
+                url: "images/pin.png"
+              },
+            // label: label,
             map: map
         });
         // var addressArray = location.formatted_address.split(",");
@@ -379,6 +382,7 @@ $(document).ready(function () {
     }
     getLatLngFromZip();
     getArticles();
+
     $(window).on("load", function () {
         $("#loader-wrapper").fadeOut("slow");
         $("body").removeClass("lock-screen");
