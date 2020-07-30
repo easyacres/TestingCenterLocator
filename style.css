@@ -1,6 +1,9 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #282828;
+    margin: 0;
+    height: 100%;
+    overflow: hidden
 }
 
 .pure-menu {
@@ -33,7 +36,7 @@ body {
 .location-finder {
     margin-top: 10rem;
     border-radius: 0rem;
-    
+
 }
 
 h1 {
@@ -41,27 +44,27 @@ h1 {
     margin-bottom: 0;
     color: #e7717d;
     text-align: center;
-  
-   
-    
+
+
+
 }
-    
+
 
 p {
     font-size: 22px;
     margin-top: 10px;
     text-align: center;
-  
-    
 
-    
+
+
+
 }
 
 input {
     background: transparent;
     color: white;
     border: 1px solid white !important;
-    
+
 }
 
 input::placeholder {
@@ -73,8 +76,9 @@ input:hover {
 }
 
 img {
-    margin-bottom: 10;
-    
+    top: 60px;
+    right: 0;
+    position: absolute;
 }
 
 #stateList {
@@ -98,11 +102,13 @@ img {
 #goButton:hover {
     opacity: .8;
 }
-#stateList{
+
+#stateList {
     color: white;
     background-color: #282828;
 }
+
 .pure-form {
     text-align: center;
-    
+
 }
