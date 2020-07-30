@@ -411,7 +411,10 @@ $(document).ready(function () {
     getLatLngFromZip();
     getArticles();
 
-    window.onload = function () {
+    $(window).on("load", function () {
+
+        $("#loader-wrapper").fadeOut("slow");
+        $("body").removeClass("lock-screen");
         // ==================================================================
         $(".accordion").on("click", function () {
 
@@ -429,7 +432,7 @@ $(document).ready(function () {
             }
         });
         // ==================================================================
-    }
+    });
 
 
 });
