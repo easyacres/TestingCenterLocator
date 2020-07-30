@@ -20,7 +20,7 @@ THEN I am presented with a list of the latest COVID-related news articles, state
 WHEN I click on the headline of a news article
 THEN I am directed to that article’s webpage where I can read the article in its entirety
 WHEN I click on a state in the national statistics map
-THEN I am taken to that state's government-run website
+THEN I am taken to that state's Department of Health website
 WHEN I click the Home link in either the footer or top navigation menu
 THEN I am taken back to the application's landing page where I can re-enter another city and state to produce new, relevant data
 WHEN I click the CDC Info link in the footer
