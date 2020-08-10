@@ -59,8 +59,6 @@ $(document).ready(function () {
         var lat = '';
         var lng = '';
 
-        var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        var labelIndex = 0;
 
         var placeIDArray = [];
 
@@ -301,7 +299,7 @@ $(document).ready(function () {
                     // Push results to array
                     placeIDArray.push(location.place_id);
                 };
-                // make our current location the first result
+                // Make our current location the first result
                 currentLocation = results[0].geometry.location;
                 // Set map center to first location
                 map.setCenter(results[0].geometry.location);
@@ -315,7 +313,7 @@ $(document).ready(function () {
 
             
             placeIDArray.forEach(function (id) {
-                // for each place id we recive the following data
+                // For each place id we recive the following data
                 var request = {
                     placeId: id,
                     fields: ['name', 'address_component', 'geometry.location', 'rating', 'formatted_phone_number', 'photos', 'url', 'opening_hours', 'website', 'reviews'],
@@ -334,6 +332,7 @@ $(document).ready(function () {
                     };
                 };
             });
+            
         };
 
         function displayLocationData(place) {
@@ -464,24 +463,29 @@ $(document).ready(function () {
         getArticles();
     };
     runOurAPIs(zipCode, stateCode);
+    function windowOnloadClickEvent (){
 
-    $(window).on("load", function () {
-        $("#loader-wrapper").fadeOut("slow");
-        $("body").removeClass("lock-screen");
-        // ==================================================================
-        $(".accordion").on("click", function () {
-            this.classList.toggle("active");
-            console.log("clicked");
-            var panel = this.nextElementSibling;
-            console.log("here", panel);
-            if (panel.style.display === "block") {
-                $(this).next().slideUp();
-            } else {
-                $(".panel").slideUp();
-                $(this).next().slideDown();
-            }
+
+        $(window).on("load", function () {
+            $("#loader-wrapper").fadeOut("slow");
+            $("body").removeClass("lock-screen");
+            // ==================================================================
+            $(".accordion").on("click", function () {
+                this.classList.toggle("active");
+                console.log("clicked");
+                var panel = this.nextElementSibling;
+                console.log("here", panel);
+                if (panel.style.display === "block") {
+                    $(this).next().slideUp();
+                } else {
+                    $(".panel").slideUp();
+                    $(this).next().slideDown();
+                }
+            });
+            // ==================================================================
+    
         });
-        // ==================================================================
 
-    });
+    };
+    windowOnloadClickEvent ();
 });
