@@ -1,6 +1,9 @@
 # TestingCenterLocator
 The COVID-19 Testing Center Locator is an interactive application where users can find nearby COVID-19 testing centers and receive the latest relevant news articles, CDC updates, as well as state and national statistics.
 
+## Deployment
+[Testing Center Locator](https://easyacres.github.io/TestingCenterLocator/)
+
 ## Technologies
 #### Front-End
 - HTML
@@ -15,7 +18,6 @@ The COVID-19 Testing Center Locator is an interactive application where users ca
 - [Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/overview) (To Display map and location data)
 - [CoronaVirus Information API](https://developer.smartable.ai/api-details#api=coronavirus&operation=stats) (To display current state statistics)
 
- 
 
 ## User Story
 ```
@@ -51,6 +53,3 @@ GIVEN a landing page with a form input field
 <pre>
 <h3>Santiago Solana   Barrett pope   Daniel Howe   Georgia Milteer   Leo Teruel</h3> <a href="https://github.com/santu14">  <img src="https://avatars3.githubusercontent.com/u/23424739?s=400&u=79507a3a1a2a3de915aa1997a4575b435a425fc4&v=4" width="100px;" border-radius="50%;"></a>       <a href="https://github.com/Barrettpope"><img src="https://avatars1.githubusercontent.com/u/65679541?s=460&u=d2208093e9b56347e9a0892f124a6250c2abb030&v=4" width="100px;" border-radius="50%;"></a>     <a href="https://github.com/easyacres"><img src="https://avatars2.githubusercontent.com/u/64825652?s=460&v=4" width="100px;" border-radius="50%;"></a>      <a href="https://github.com/easyacres"><img src="https://avatars0.githubusercontent.com/u/66340029?s=460&u=184cfe9df5c541177a715a211416dfe133554cea&v=4" width="100px;" border-radius="50%;"></a>      <a href="https://github.com/Ls-Teruel"><img src="https://avatars1.githubusercontent.com/u/66227160?s=460&v=4" width="100px;" border-radius="50%;"></a>
 </pre>
-
-- - -
-[Testing Center Locator](https://easyacres.github.io/TestingCenterLocator/)
